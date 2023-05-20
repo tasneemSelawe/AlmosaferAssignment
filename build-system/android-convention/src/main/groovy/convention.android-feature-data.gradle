@@ -1,0 +1,13 @@
+plugins {
+    id("convention.android-feature")
+}
+
+dependencies {
+    implementation(libs.network.retrofit)
+    implementation(libs.network.retrofit.moshi)
+    implementation(libs.network.moshi)
+    implementation(libs.network.moshi.adapters)
+    implementation(libs.network.moshi.lazy.adapters)
+    implementation(libs.network.moshi.kotlin)
+    ksp(libs.network.moshi.compiler)
+}

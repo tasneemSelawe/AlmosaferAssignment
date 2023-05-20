@@ -1,0 +1,94 @@
+[versions]
+# Gradle Versions
+version-plugin-android-gradle = "7.4.1"
+
+# Kotlin Versions
+version-plugin-kotlin = "1.8.0"
+version-kotlin-coroutines = "1.6.4"
+
+# KSP
+version-plugin-ksp = "1.8.0-1.0.9"
+
+# Androidx Components Versions
+version-androidx-appcompat = "1.6.0"
+version-androidx-recyclerview = "1.2.1"
+version-androidx-core-ktx = "1.9.0"
+version-androidx-annotations = "1.5.0"
+version-androidx-activity-ktx = "1.6.1"
+version-androidx-startup-runtime = "1.1.1"
+version-androidx-material = "1.8.0"
+version-androidx-lifecycle = "2.5.1"
+version-androidx-splash = "1.0.0"
+version-androidx-in-app-browser = "1.4.0"
+
+# DI Versions
+version-di-dagger = "2.44.2"
+version-di-inject = "1"
+version-di-androidx-hilt = "1.0.0"
+
+# Image Loading Versions
+version-image-loading-coil = "2.2.2"
+
+# Netwroking Versions
+version-network-retrofit = "2.9.0"
+version-network-moshi = "1.14.0"
+version-network-moshi-lazy-adapters = "2.2"
+
+# Flipper Versions
+version-flipper = "0.180.0"
+
+# SoLoader Versions
+version-so-loader = "0.10.4"
+
+
+[libraries]
+# Gradle
+plugin-android-gradle = { module = "com.android.tools.build:gradle", version.ref = "version-plugin-android-gradle" }
+
+# Kotlin
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "version-plugin-kotlin" }
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
+kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "version-kotlin-coroutines" }
+kotlin-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "version-kotlin-coroutines" }
+
+# Kotlin
+plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "version-plugin-ksp" }
+
+# Androidx Components
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "version-androidx-appcompat" }
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "version-androidx-recyclerview" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "version-androidx-core-ktx" }
+androidx-annotations = { module = "androidx.annotation:annotation", version.ref = "version-androidx-annotations" }
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "version-androidx-activity-ktx" }
+androidx-material = { module = "com.google.android.material:material", version.ref = "version-androidx-material" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "version-androidx-lifecycle" }
+androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "version-androidx-splash" }
+androidx-in-app-browser = { module = "androidx.browser:browser", version.ref = "version-androidx-in-app-browser" }
+
+# Dagger
+di-dagger = { module = "com.google.dagger:dagger", version.ref = "version-di-dagger" }
+di-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "version-di-dagger" }
+di-dagger-hilt = { module = "com.google.dagger:hilt-android", version.ref = "version-di-dagger" }
+di-dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "version-di-dagger" }
+plugin-di-dagger-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "version-di-dagger" }
+di-inject = { module = "javax.inject:javax.inject", version.ref = "version-di-inject" }
+
+# Image Loading
+image-loading-coil = { module = "io.coil-kt:coil", version.ref = "version-image-loading-coil" }
+
+# Networking
+network-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "version-network-retrofit" }
+network-retrofit-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "version-network-retrofit" }
+network-moshi = { module = "com.squareup.moshi:moshi", version.ref = "version-network-moshi" }
+network-moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "version-network-moshi" }
+network-moshi-lazy-adapters = { module = "com.serjltt.moshi:moshi-lazy-adapters", version.ref = "version-network-moshi-lazy-adapters" }
+network-moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "version-network-moshi" }
+network-moshi-compiler = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "version-network-moshi" }
+
+# Flipper
+flipper = { module = "com.facebook.flipper:flipper", version.ref = "version-flipper" }
+flipper-network = { module = "com.facebook.flipper:flipper-network-plugin", version.ref = "version-flipper" }
+flipper-leakcanary = { module = "com.facebook.flipper:flipper-leakcanary2-plugin", version.ref = "version-flipper" }
+
+# SoLoader
+so-loader = { module = "com.facebook.soloader:soloader", version.ref = "version-so-loader" }

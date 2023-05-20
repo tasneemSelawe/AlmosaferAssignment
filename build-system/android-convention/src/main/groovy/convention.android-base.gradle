@@ -1,0 +1,56 @@
+plugins {
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "dagger.hilt.android.plugin"
+    id "com.google.devtools.ksp"
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+
+        production {
+            dimension "version"
+        }
+
+        development {
+            dimension "version"
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'org.jetbrains.kotlin' && (requested.name == 'kotlin-reflect' || requested.name.contains('kotlin-stdlib'))) {
+                details.useVersion "1.7.20"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.lifecycle.runtime)
+
+    implementation(libs.di.dagger)
+    kapt(libs.di.dagger.compiler)
+
+    implementation(libs.di.dagger.hilt)
+    kapt(libs.di.dagger.hilt.compiler)
+}

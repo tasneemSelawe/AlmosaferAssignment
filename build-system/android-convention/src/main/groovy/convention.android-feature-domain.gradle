@@ -1,0 +1,9 @@
+plugins {
+    id("convention.android-feature")
+}
+
+dependencies {
+    implementation(libs.androidx.annotations)
+    implementation(libs.di.inject)
+    implementation(libs.kotlin.coroutines.core)
+}

@@ -1,0 +1,20 @@
+plugins {
+    id("convention.android-feature")
+}
+
+android {
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.annotations)
+
+    implementation(libs.image.loading.coil)
+}

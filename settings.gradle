@@ -13,4 +13,10 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AlmosaferAssignment"
+
+includeBuild('build-system')
+
 include ':app'
+include ':core:network'
+include 'core:theme'
+

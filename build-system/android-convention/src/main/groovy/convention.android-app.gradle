@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.application'
+    id 'convention.android-base'
+}
+
+android {
+
+    defaultConfig {
+        applicationId "com.task.almosaferassignment"
+
+        versionCode Integer.parseInt(getProperty("app.version.code"))
+        versionName getProperty("app.version.name")
+    }
+
+
+    buildTypes {
+
+        release {
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+
+        production {
+            dimension "version"
+        }
+
+        development {
+            dimension "version"
+        }
+    }
+
+    configurations {
+        all {
+            exclude module: 'httpclient'
+            exclude module: 'commons-logging'
+        }
+    }
+}
+
+dependencies {
+    implementation(libs.image.loading.coil)
+}

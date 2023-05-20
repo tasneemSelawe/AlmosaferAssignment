@@ -1,0 +1,22 @@
+plugins {
+    id 'convention.android-feature-data'
+}
+
+android {
+
+    productFlavors.all {
+        buildConfigField("String", "API_BASE_URL", "\"" + rootProject.getProperty("app.api.base") + "\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    namespace 'com.task.almosaferassignment.core.network'
+}
+
+dependencies {
+    debugImplementation(libs.flipper.network)
+    debugImplementation(libs.flipper)
+    debugImplementation(libs.so.loader)
+}

@@ -18,5 +18,9 @@ includeBuild('build-system')
 
 include ':app'
 include ':core:network'
-include 'core:theme'
+include ':core:theme'
+
+include ':features:movie:data'
+include ':features:movie:domain'
+include ':features:movie:presentation'
 

@@ -1,0 +1,12 @@
+plugins {
+    id 'convention.android-feature-data'
+}
+
+dependencies {
+    implementation project(':core:network')
+    api project(':features:movie:domain')
+}
+
+android {
+    namespace 'com.task.almosaferassignment.feature.movie.data'
+}

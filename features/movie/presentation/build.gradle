@@ -1,0 +1,12 @@
+plugins {
+    id 'convention.android-feature-presentation'
+}
+
+dependencies {
+    implementation project(":features:movie:domain")
+
+}
+
+android {
+    namespace 'com.task.almosaferassignment.feature.movie.presentation'
+}

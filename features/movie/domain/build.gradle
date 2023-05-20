@@ -1,0 +1,10 @@
+plugins {
+    id 'convention.android-feature-domain'
+}
+
+dependencies {
+}
+
+android {
+    namespace 'com.task.almosaferassignment.feature.movie.domain'
+}

@@ -1,5 +1,7 @@
 package com.task.almosaferassignment.feature.movie.domain
 
-interface MovieRepository {
+import com.task.almosaferassignment.feature.movie.domain.entity.Movie
 
+interface MovieRepository {
+    suspend fun getMovieList(sortBy: String): List<Movie>
 }

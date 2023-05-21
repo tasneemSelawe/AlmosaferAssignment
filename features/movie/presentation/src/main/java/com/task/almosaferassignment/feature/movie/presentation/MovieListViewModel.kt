@@ -2,6 +2,7 @@ package com.task.almosaferassignment.feature.movie.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.task.almosaferassignment.core.errorhandler.exception.RemoteException
 import com.task.almosaferassignment.feature.movie.domain.entity.Movie
 import com.task.almosaferassignment.feature.movie.domain.usecase.GetMovieListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,7 +23,7 @@ class MovieListViewModel @Inject constructor(
     private val _loadingFlow = MutableStateFlow(true)
     val loadingFlow = _loadingFlow.asStateFlow()
 
-    private val _errorFlow = MutableSharedFlow<Exception>()
+    private val _errorFlow = MutableSharedFlow<RemoteException>()
     val errorFlow = _errorFlow.asSharedFlow()
 
     private val _popularMovieList = MutableStateFlow<List<Movie>?>(null)
@@ -38,7 +39,7 @@ class MovieListViewModel @Inject constructor(
         getMovieList()
     }
 
-    private fun getMovieList() {
+     fun getMovieList() {
         viewModelScope.launch(Dispatchers.IO) {
             _loadingFlow.emit(true)
             try {
@@ -50,7 +51,7 @@ class MovieListViewModel @Inject constructor(
                 _topRatedMovieList.emit(dif2.await())
                 _revenueMovieList.emit(dif3.await())
 
-            } catch (exception: Exception) {
+            } catch (exception: RemoteException) {
                 _errorFlow.emit(exception)
             }
             _loadingFlow.emit(false)

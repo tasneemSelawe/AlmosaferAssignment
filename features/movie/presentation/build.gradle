@@ -4,6 +4,13 @@ plugins {
 
 dependencies {
     implementation project(":features:movie:domain")
+    implementation project(":core:error-handler")
+    testImplementation (libs.junit)
+    testImplementation (libs.mockito)
+    testImplementation (libs.androidx.core.test)
+    testImplementation (libs.kotlin.coroutines.test)
+    testImplementation (libs.di.dagger.hilt.test)
+    kaptTest (libs.di.dagger.hilt.kotlin.test)
 
 }
 

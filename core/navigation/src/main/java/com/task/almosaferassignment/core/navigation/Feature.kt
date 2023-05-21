@@ -1,3 +1,3 @@
-package com.jo.switchgate.core.navigation
+package com.task.almosaferassignment.core.navigation
 
 interface Feature

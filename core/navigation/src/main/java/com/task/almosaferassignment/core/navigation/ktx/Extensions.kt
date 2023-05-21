@@ -1,4 +1,4 @@
-package com.jo.switchgate.core.navigation.ktx
+package com.task.almosaferassignment.core.navigation.ktx
 
 import android.app.Activity
 import android.os.Build
@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.SavedStateHandle
-import com.jo.switchgate.core.navigation.di.NavigationContainer
+import com.task.almosaferassignment.core.navigation.di.NavigationContainer
+
 
 @Suppress("DEPRECATION")
 inline fun <reified T : Parcelable> Fragment.navigationArguments(): Lazy<T> {

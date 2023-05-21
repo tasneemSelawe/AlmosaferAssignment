@@ -19,6 +19,7 @@ includeBuild('build-system')
 include ':app'
 include ':core:network'
 include ':core:theme'
+include ':core:error-handler'
 
 include ':features:movie:data'
 include ':features:movie:domain'

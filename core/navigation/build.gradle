@@ -1,0 +1,10 @@
+plugins {
+    id 'convention.android-feature-presentation'
+}
+
+dependencies {
+}
+
+android {
+    namespace 'com.task.almosaferassignment.core.navigation'
+}

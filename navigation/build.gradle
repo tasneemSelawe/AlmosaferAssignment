@@ -3,8 +3,9 @@ plugins {
 }
 
 dependencies {
+
 }
 
 android {
-    namespace 'com.task.almosaferassignment.core.navigation'
+    namespace 'com.task.almosaferassignment.navigation'
 }

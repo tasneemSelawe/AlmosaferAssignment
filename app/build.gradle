@@ -18,7 +18,7 @@ dependencies {
 
     implementation project(':core:network')
     implementation project(':core:theme')
-    implementation project(':core:navigation')
+    implementation project(':navigation')
 
     implementation project(':features:movie:data')
     implementation project(':features:movie:presentation')

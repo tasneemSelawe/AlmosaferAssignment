@@ -1,4 +1,4 @@
-package com.task.almosaferassignment.core.navigation.ktx
+package com.task.almosaferassignment.navigation.ktx
 
 import android.app.Activity
 import android.os.Build
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.SavedStateHandle
-import com.task.almosaferassignment.core.navigation.di.NavigationContainer
+import com.task.almosaferassignment.navigation.di.NavigationContainer
 
 
 @Suppress("DEPRECATION")

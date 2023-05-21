@@ -16,4 +16,10 @@ internal class MovieRepositoryImpl @Inject constructor(
         return remoteDataSource.getMovieList(sortBy)
             .map { movieResponseToMovieMapper.map(it) }
     }
+
+    override suspend fun getMovieDetails(movieId: Int): Movie {
+        return movieResponseToMovieMapper.map(remoteDataSource.getMovieDetails(movieId))
+
+
+    }
 }

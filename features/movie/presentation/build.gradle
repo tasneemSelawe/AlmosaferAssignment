@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation project(":core:navigation")
+
     implementation project(":features:movie:domain")
 
 }

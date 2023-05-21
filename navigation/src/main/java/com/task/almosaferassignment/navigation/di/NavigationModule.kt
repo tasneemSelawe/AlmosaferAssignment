@@ -1,8 +1,8 @@
-package com.task.almosaferassignment.core.navigation.di
+package com.task.almosaferassignment.navigation.di
 
-import com.task.almosaferassignment.core.navigation.Feature
-import com.task.almosaferassignment.core.navigation.features.MovieDetailsEntry
-import com.task.almosaferassignment.core.navigation.features.MovieListEntry
+import com.task.almosaferassignment.navigation.Feature
+import com.task.almosaferassignment.navigation.features.MovieDetailsEntry
+import com.task.almosaferassignment.navigation.features.MovieListEntry
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

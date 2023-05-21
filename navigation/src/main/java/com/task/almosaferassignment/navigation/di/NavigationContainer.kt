@@ -1,10 +1,10 @@
-package com.task.almosaferassignment.core.navigation.di
+package com.task.almosaferassignment.navigation.di
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
-import com.task.almosaferassignment.core.navigation.FeatureEntry
-import com.task.almosaferassignment.core.navigation.ktx.navigationContainer
+import com.task.almosaferassignment.navigation.FeatureEntry
+import com.task.almosaferassignment.navigation.ktx.navigationContainer
 import kotlinx.coroutines.launch
 
 interface NavigationContainer {

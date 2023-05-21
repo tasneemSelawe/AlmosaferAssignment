@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_app">
+    android:id="@+id/navigation_app"
+    app:startDestination="@id/fragment_movie_list">
+
+    <fragment
+        android:id="@+id/fragment_movie_list"
+        android:name="com.task.almosaferassignment.feature.movie.presentation.movielist.MovieListFragment"/>
+
+    <fragment
+        android:id="@+id/fragment_movie_details"
+        android:name="com.task.almosaferassignment.feature.movie.presentation.moviedetails.MovieDetailsFragment"/>
 
 
 

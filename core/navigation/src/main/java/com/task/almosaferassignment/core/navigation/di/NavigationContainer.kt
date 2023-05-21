@@ -1,10 +1,10 @@
-package com.jo.switchgate.core.navigation.di
+package com.task.almosaferassignment.core.navigation.di
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
-import com.jo.switchgate.core.navigation.FeatureEntry
-import com.jo.switchgate.core.navigation.ktx.navigationContainer
+import com.task.almosaferassignment.core.navigation.FeatureEntry
+import com.task.almosaferassignment.core.navigation.ktx.navigationContainer
 import kotlinx.coroutines.launch
 
 interface NavigationContainer {

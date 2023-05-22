@@ -48,6 +48,9 @@ version-junit="4.13.2"
 # Mockk Version
 version-mockk="1.13.5"
 
+# Shimmer
+version-shimmer ="0.5.0"
+
 
 
 [libraries]
@@ -117,3 +120,7 @@ junit ={ module = "junit:junit", version.ref = "version-junit" }
 
 # Mockk
 mockk = { module = "io.mockk:mockk", version.ref = "version-mockk" }
+
+
+# Shimmer
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "version-shimmer" }

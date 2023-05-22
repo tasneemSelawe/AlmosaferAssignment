@@ -45,8 +45,8 @@ version-so-loader = "0.10.4"
 #Junit Version
 version-junit="4.13.2"
 
-# Mockito Version
-version-mockito="5.3.1"
+# Mockk Version
+version-mockk="1.13.5"
 
 
 
@@ -115,5 +115,5 @@ so-loader = { module = "com.facebook.soloader:soloader", version.ref = "version-
 #Junit
 junit ={ module = "junit:junit", version.ref = "version-junit" }
 
-# Mockito
-mockito = { module = "org.mockito:mockito-core", version.ref = "version-mockito" }
+# Mockk
+mockk = { module = "io.mockk:mockk", version.ref = "version-mockk" }

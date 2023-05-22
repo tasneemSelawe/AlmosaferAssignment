@@ -8,7 +8,7 @@ dependencies {
     implementation project(":features:movie:domain")
     implementation project(":core:error-handler")
     testImplementation (libs.junit)
-    testImplementation (libs.mockito)
+    testImplementation (libs.mockk)
     testImplementation (libs.androidx.core.test)
     testImplementation (libs.kotlin.coroutines.test)
     testImplementation (libs.di.dagger.hilt.test)

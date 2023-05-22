@@ -11,6 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import com.task.almosaferassignment.core.errorhandler.exception.RemoteException
 import com.task.almosaferassignment.feature.movie.domain.entity.Movie
 import com.task.almosaferassignment.feature.movie.presentation.databinding.FragmentMovieListBinding
+import com.task.almosaferassignment.navigation.di.getEntryPoint
+import com.task.almosaferassignment.navigation.features.MovieDetailsEntry
+import com.task.almosaferassignment.navigation.features.MovieDetailsEntry.*
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -47,6 +50,45 @@ class MovieListFragment : Fragment() {
         binding.recyclerViewPopular.adapter = popularAdapter
         binding.recyclerViewTopRated.adapter = topRatedAdapter
         binding.recyclerViewRevenue.adapter = revenueAdapter
+
+        popularAdapter.setOnMovieClickListener {
+            getEntryPoint<MovieDetailsEntry> {
+                navigate(
+                    Arguments(
+                        it.backdropPath,
+                        it.title,
+                        it.voteAverage,
+                        it.overview
+                    )
+                )
+            }
+        }
+
+        topRatedAdapter.setOnMovieClickListener {
+            getEntryPoint<MovieDetailsEntry> {
+                navigate(
+                    Arguments(
+                        it.backdropPath,
+                        it.title,
+                        it.voteAverage,
+                        it.overview
+                    )
+                )
+            }
+        }
+
+        revenueAdapter.setOnMovieClickListener {
+            getEntryPoint<MovieDetailsEntry> {
+                navigate(
+                    Arguments(
+                        it.backdropPath,
+                        it.title,
+                        it.voteAverage,
+                        it.overview
+                    )
+                )
+            }
+        }
     }
 
     private fun initFlow() {
@@ -84,19 +126,20 @@ class MovieListFragment : Fragment() {
         }
         popularAdapter.submitList(movieList)
     }
+
     private fun handelTopRatedMovieList(movieList: List<Movie>?) {
         if (movieList == null) {
             return
         }
         topRatedAdapter.submitList(movieList)
     }
-        private fun handelRevenueMovieList(movieList: List<Movie>?) {
+
+    private fun handelRevenueMovieList(movieList: List<Movie>?) {
         if (movieList == null) {
             return
         }
         revenueAdapter.submitList(movieList)
     }
-
 
 
     override fun onDestroyView() {

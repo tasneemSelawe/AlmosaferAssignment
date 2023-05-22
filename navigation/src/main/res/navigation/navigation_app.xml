@@ -6,11 +6,13 @@
 
     <fragment
         android:id="@+id/fragment_movie_list"
-        android:name="com.task.almosaferassignment.feature.movie.presentation.movielist.MovieListFragment"/>
+        android:name="com.task.almosaferassignment.feature.movie.presentation.movielist.MovieListFragment"
+        android:label="@string/catalog"/>
 
     <fragment
         android:id="@+id/fragment_movie_details"
-        android:name="com.task.almosaferassignment.feature.movie.presentation.moviedetails.MovieDetailsFragment"/>
+        android:name="com.task.almosaferassignment.feature.movie.presentation.moviedetails.MovieDetailsFragment"
+        android:label="@string/details"/>
 
 
 

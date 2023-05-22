@@ -11,10 +11,18 @@ import com.facebook.flipper.plugins.navigation.NavigationFlipperPlugin
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin
 import com.facebook.soloader.SoLoader
+import com.task.almosaferassignment.navigation.Feature
+import com.task.almosaferassignment.navigation.FeatureEntry
+import com.task.almosaferassignment.navigation.di.NavigationContainer
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
+import javax.inject.Provider
 
 @HiltAndroidApp
-internal class AlmosaferAssignmentApplication : Application() {
+internal class AlmosaferAssignmentApplication : Application(), NavigationContainer {
+
+    @Inject
+    lateinit var features: Map<Class<*>, @JvmSuppressWildcards Provider<Feature>>
 
     override fun onCreate() {
         super.onCreate()
@@ -38,5 +46,9 @@ internal class AlmosaferAssignmentApplication : Application() {
             client.addPlugin(NavigationFlipperPlugin.getInstance())
             client.start()
         }
+    }
+
+    override fun <T : FeatureEntry<*, *>> getEntryPoint(cls: Class<T>): T {
+        return features[cls]!!.get() as T
     }
 }

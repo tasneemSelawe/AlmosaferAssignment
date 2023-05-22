@@ -44,6 +44,9 @@ class MovieListAdapter : ListAdapter<Movie, MovieListAdapter.MatchViewHolder>(DI
                 placeholder(R.drawable.ic_image_placeholder)
                 error(R.drawable.ic_image_placeholder)
             }
+            binding.linerLayoutMovie.setOnClickListener {
+                onMovieClickListener?.invoke(item)
+            }
         }
     }
 

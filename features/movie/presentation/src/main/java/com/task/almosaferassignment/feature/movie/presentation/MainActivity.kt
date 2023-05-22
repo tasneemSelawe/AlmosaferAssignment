@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupToolbarProvider() {
         navController.addOnDestinationChangedListener { _, destination, arguments ->
             binding.appBarLayout.setExpanded(true)
+            val parent = binding.frameLayoutToolbarContainer
+            parent.title = destination.label
+
+
         }
     }
 

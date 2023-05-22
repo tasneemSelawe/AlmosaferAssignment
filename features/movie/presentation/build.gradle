@@ -6,6 +6,13 @@ dependencies {
     implementation project(":navigation")
 
     implementation project(":features:movie:domain")
+    implementation project(":core:error-handler")
+    testImplementation (libs.junit)
+    testImplementation (libs.mockk)
+    testImplementation (libs.androidx.core.test)
+    testImplementation (libs.kotlin.coroutines.test)
+    testImplementation (libs.di.dagger.hilt.test)
+    kaptTest (libs.di.dagger.hilt.kotlin.test)
 
 }
 

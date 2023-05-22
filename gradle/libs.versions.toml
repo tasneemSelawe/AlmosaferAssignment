@@ -21,6 +21,7 @@ version-androidx-lifecycle = "2.5.1"
 version-androidx-splash = "1.0.0"
 version-androidx-in-app-browser = "1.4.0"
 version-androidx-navigation = "2.5.3"
+version-androidx-core-test = "2.2.0"
 
 # DI Versions
 version-di-dagger = "2.44.2"
@@ -41,6 +42,13 @@ version-flipper = "0.180.0"
 # SoLoader Versions
 version-so-loader = "0.10.4"
 
+#Junit Version
+version-junit="4.13.2"
+
+# Mockk Version
+version-mockk="1.13.5"
+
+
 
 [libraries]
 # Gradle
@@ -51,6 +59,7 @@ plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
 kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "version-kotlin-coroutines" }
 kotlin-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "version-kotlin-coroutines" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-kotlin-coroutines" }
 
 # Kotlin
 plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "version-plugin-ksp" }
@@ -65,6 +74,7 @@ androidx-material = { module = "com.google.android.material:material", version.r
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "version-androidx-lifecycle" }
 androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "version-androidx-splash" }
 androidx-in-app-browser = { module = "androidx.browser:browser", version.ref = "version-androidx-in-app-browser" }
+androidx-core-test = { module = "androidx.arch.core:core-testing", version.ref = "version-androidx-core-test" }
 
 # Navigation Companant
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "version-androidx-navigation" }
@@ -78,6 +88,9 @@ di-dagger-hilt = { module = "com.google.dagger:hilt-android", version.ref = "ver
 di-dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "version-di-dagger" }
 plugin-di-dagger-hilt = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "version-di-dagger" }
 di-inject = { module = "javax.inject:javax.inject", version.ref = "version-di-inject" }
+di-dagger-hilt-test = { module = "com.google.dagger:hilt-android-testing", version.ref = "version-di-dagger" }
+di-dagger-hilt-kotlin-test = { module = "com.google.dagger:hilt-android-compiler", version.ref = "version-di-dagger" }
+
 
 # Image Loading
 image-loading-coil = { module = "io.coil-kt:coil", version.ref = "version-image-loading-coil" }
@@ -98,3 +111,9 @@ flipper-leakcanary = { module = "com.facebook.flipper:flipper-leakcanary2-plugin
 
 # SoLoader
 so-loader = { module = "com.facebook.soloader:soloader", version.ref = "version-so-loader" }
+
+#Junit
+junit ={ module = "junit:junit", version.ref = "version-junit" }
+
+# Mockk
+mockk = { module = "io.mockk:mockk", version.ref = "version-mockk" }

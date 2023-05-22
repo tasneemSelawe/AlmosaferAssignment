@@ -8,20 +8,20 @@ class MovieListResponseToMovieListMapper @Inject constructor() {
 
     fun map(source: MovieResponse): Movie {
         return Movie(
-            adult = source.adult,
-            id = source.id,
-            video = source.video,
-            voteAverage = source.voteAverage,
-            voteCount = source.voteCount,
-            overview = source.overview,
-            popularity = source.popularity,
+            adult = source.adult?:false,
+            id = source.id?:0,
+            video = source.video?:false,
+            voteAverage = source.voteAverage?:0.0,
+            voteCount = source.voteCount?:0,
+            overview = source.overview?:"",
+            popularity = source.popularity?:0.0,
             posterPath = source.posterPath?:"",
             backdropPath = source.backdropPath?:"",
-            title = source.title,
-            genreIds = source.genreIds,
-            originalTitle = source.originalTitle,
-            originalLanguage = source.originalLanguage,
-            releaseDate = source.releaseDate
+            title = source.title?:"",
+            genreIds = source.genreIds?: listOf(),
+            originalTitle = source.originalTitle?:"",
+            originalLanguage = source.originalLanguage?:"",
+            releaseDate = source.releaseDate?:""
         )
     }
 }

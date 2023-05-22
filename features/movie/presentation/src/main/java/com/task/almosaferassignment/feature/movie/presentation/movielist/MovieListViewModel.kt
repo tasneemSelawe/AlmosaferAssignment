@@ -36,16 +36,16 @@ class MovieListViewModel @Inject constructor(
     val revenueMovieList = _revenueMovieList.asStateFlow()
 
     init {
-        getMovieList()
+        getMovieList(1)
     }
 
-     fun getMovieList() {
+     fun getMovieList(page:Int) {
         viewModelScope.launch(Dispatchers.IO) {
             _loadingFlow.emit(true)
             try {
-                val dif1 = async { getMovieListUseCase("popularity.desc") }
-                val dif2 = async { getMovieListUseCase("vote_average.desc") }
-                val dif3 = async { getMovieListUseCase("revenue.desc") }
+                val dif1 = async { getMovieListUseCase("popularity.desc",page) }
+                val dif2 = async { getMovieListUseCase("vote_average.desc",page) }
+                val dif3 = async { getMovieListUseCase("revenue.desc",page) }
 
                 _popularMovieList.emit(dif1.await())
                 _topRatedMovieList.emit(dif2.await())
@@ -56,6 +56,10 @@ class MovieListViewModel @Inject constructor(
             }
             _loadingFlow.emit(false)
         }
+    }
+
+    fun isLastPage(): Boolean {
+        return false
     }
 
 }

@@ -44,6 +44,7 @@ class MovieListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initFlow()
         initRecyclerView()
+        setUpPopularPagination()
     }
 
     private fun initRecyclerView() {
@@ -139,6 +140,28 @@ class MovieListFragment : Fragment() {
             return
         }
         revenueAdapter.submitList(movieList)
+    }
+
+
+    private fun setUpPopularPagination() {
+        //reset page numbers
+        var popularMoviesPage = 2
+        //add scroll listener for pagination for each recycler
+        binding.recyclerViewPopular.addOnScrollListener(object : PaginationScrollListener() {
+            override fun isLastPage(): Boolean {
+                return viewModel.isLastPage()
+            }
+
+            override fun isLoading(): Boolean {
+                return viewModel.loadingFlow.value
+            }
+
+            override fun loadMoreItems() {
+                popularMoviesPage += 1
+                viewModel.getMovieList(popularMoviesPage)
+
+            }
+        })
     }
 
 

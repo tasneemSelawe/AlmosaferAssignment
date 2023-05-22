@@ -8,7 +8,7 @@ import javax.inject.Inject
 @Reusable
 class GetMovieListUseCase @Inject constructor(private val movieRepository: MovieRepository) {
 
-    suspend operator fun invoke(sortBy: String): List<Movie> {
-        return movieRepository.getMovieList(sortBy)
+    suspend operator fun invoke(sortBy: String,page:Int): List<Movie> {
+        return movieRepository.getMovieList(sortBy,page)
     }
 }

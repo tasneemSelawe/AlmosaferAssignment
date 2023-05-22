@@ -15,7 +15,7 @@ import org.junit.Test
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MovieListViewModelTest2 {
+class MovieListViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -28,14 +28,14 @@ class MovieListViewModelTest2 {
     @Test
     fun `test that loading flow value is true when getMoviesList is called`() = runTest {
         //given
-        coEvery { getMovieListUseCase(any()) } returns listOf(
+        coEvery { getMovieListUseCase(any(),any()) } returns listOf(
             getMockedMovie(),
             getMockedMovie(),
             getMockedMovie()
         )
 
         //when
-        viewModel.getMovieList()
+        viewModel.getMovieList(1)
 
         //then
         Assert.assertEquals(true, viewModel.loadingFlow.first())
@@ -46,10 +46,10 @@ class MovieListViewModelTest2 {
     fun `test that list flows flow is empty when getMoviesList returns empty list`() =
         runTest {
             //given
-            coEvery { getMovieListUseCase(any()) } returns listOf()
+            coEvery { getMovieListUseCase(any(),any()) } returns listOf()
 
             //when
-            viewModel.getMovieList()
+            viewModel.getMovieList(1)
 
             //then
             Assert.assertEquals(0, viewModel.popularMovieList.value?.size)

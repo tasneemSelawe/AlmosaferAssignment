@@ -19,8 +19,8 @@ internal class MovieRepositoryImpl @Inject constructor(
     private val movieResponseToMovieMapper: MovieListResponseToMovieListMapper,
     @Network private val errorHandler: ErrorHandler
 ) : MovieRepository {
-    override suspend fun getMovieList(sortBy: String): List<Movie> {
-        return runWithCatching { remoteDataSource.getMovieList(sortBy) }
+    override suspend fun getMovieList(sortBy: String,page:Int): List<Movie> {
+        return runWithCatching { remoteDataSource.getMovieList(sortBy,page) }
             .map { it.map(movieResponseToMovieMapper::map) }
             .mapError(errorHandler::getError)
             .getOrThrow()

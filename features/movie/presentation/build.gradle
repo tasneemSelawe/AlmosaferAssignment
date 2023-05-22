@@ -3,6 +3,8 @@ plugins {
 }
 
 dependencies {
+    implementation project(":navigation")
+
     implementation project(":features:movie:domain")
     implementation project(":core:error-handler")
     testImplementation (libs.junit)

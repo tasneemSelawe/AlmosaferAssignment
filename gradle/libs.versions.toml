@@ -20,6 +20,7 @@ version-androidx-material = "1.8.0"
 version-androidx-lifecycle = "2.5.1"
 version-androidx-splash = "1.0.0"
 version-androidx-in-app-browser = "1.4.0"
+version-androidx-navigation = "2.5.3"
 version-androidx-core-test = "2.2.0"
 
 # DI Versions
@@ -74,6 +75,11 @@ androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-kt
 androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "version-androidx-splash" }
 androidx-in-app-browser = { module = "androidx.browser:browser", version.ref = "version-androidx-in-app-browser" }
 androidx-core-test = { module = "androidx.arch.core:core-testing", version.ref = "version-androidx-core-test" }
+
+# Navigation Companant
+androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "version-androidx-navigation" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "version-androidx-navigation" }
+androidx-navigation-common = { module = "androidx.navigation:navigation-common-ktx", version.ref = "version-androidx-navigation" }
 
 # Dagger
 di-dagger = { module = "com.google.dagger:dagger", version.ref = "version-di-dagger" }

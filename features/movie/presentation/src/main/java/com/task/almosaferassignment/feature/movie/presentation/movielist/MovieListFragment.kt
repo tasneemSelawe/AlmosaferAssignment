@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.task.almosaferassignment.core.errorhandler.exception.RemoteException
 import com.task.almosaferassignment.feature.movie.domain.entity.Movie
+import com.task.almosaferassignment.feature.movie.presentation.MovieType
 import com.task.almosaferassignment.feature.movie.presentation.databinding.FragmentMovieListBinding
 import com.task.almosaferassignment.navigation.di.getEntryPoint
 import com.task.almosaferassignment.navigation.features.MovieDetailsEntry
@@ -45,6 +46,8 @@ class MovieListFragment : Fragment() {
         initFlow()
         initRecyclerView()
         setUpPopularPagination()
+        setUpToRatedPagination()
+        setUpRevenuePagination()
     }
 
     private fun initRecyclerView() {
@@ -106,14 +109,27 @@ class MovieListFragment : Fragment() {
             viewModel.topRatedMovieList.collect(::handelTopRatedMovieList)
         }
         lifecycleScope.launch {
-            viewModel.topRatedMovieList.collect(::handelRevenueMovieList)
+            viewModel.revenueMovieList.collect(::handelRevenueMovieList)
         }
     }
 
-    private fun handelLoading(show: Boolean) {
-        binding.shimmerPopular.root.isVisible = show
-        binding.shimmerTopRated.root.isVisible = show
-        binding.shimmerRevenue.root.isVisible = show
+    //  private fun handelLoading(show: Boolean) {
+    private fun handelLoading(pair: Pair<Boolean, MovieType?>) {
+        when (pair.second) {
+            MovieType.Popularity -> {
+                binding.shimmerPopular.root.isVisible = pair.first
+            }
+            MovieType.TopRated -> {
+                binding.shimmerTopRated.root.isVisible = pair.first
+            }
+            MovieType.Revenue -> {
+                binding.shimmerRevenue.root.isVisible = pair.first
+            }
+            else -> {}
+        }
+//        binding.shimmerPopular.root.isVisible = show
+//        binding.shimmerTopRated.root.isVisible = show
+//        binding.shimmerRevenue.root.isVisible = show
 
     }
 
@@ -144,21 +160,60 @@ class MovieListFragment : Fragment() {
 
 
     private fun setUpPopularPagination() {
-        //reset page numbers
-        var popularMoviesPage = 2
+        var popularMoviesPage = 1
         //add scroll listener for pagination for each recycler
         binding.recyclerViewPopular.addOnScrollListener(object : PaginationScrollListener() {
             override fun isLastPage(): Boolean {
-                return viewModel.isLastPage()
+                return false
             }
 
             override fun isLoading(): Boolean {
-                return viewModel.loadingFlow.value
+                return viewModel.loadingFlow.value.first
             }
 
             override fun loadMoreItems() {
                 popularMoviesPage += 1
-                viewModel.getMovieList(popularMoviesPage)
+                viewModel.getMovieList(popularMoviesPage, MovieType.Popularity)
+
+            }
+        })
+    }
+
+    private fun setUpRevenuePagination() {
+        var revenueMoviesPage = 1
+        //add scroll listener for pagination for each recycler
+        binding.recyclerViewRevenue.addOnScrollListener(object : PaginationScrollListener() {
+            override fun isLastPage(): Boolean {
+                return false
+            }
+
+            override fun isLoading(): Boolean {
+                return viewModel.loadingFlow.value.first
+            }
+
+            override fun loadMoreItems() {
+                revenueMoviesPage += 1
+                viewModel.getMovieList(revenueMoviesPage, MovieType.Revenue)
+
+            }
+        })
+    }
+
+    private fun setUpToRatedPagination() {
+        var topRatedMoviesPage = 1
+        //add scroll listener for pagination for each recycler
+        binding.recyclerViewTopRated.addOnScrollListener(object : PaginationScrollListener() {
+            override fun isLastPage(): Boolean {
+                return false
+            }
+
+            override fun isLoading(): Boolean {
+                return viewModel.loadingFlow.value.first
+            }
+
+            override fun loadMoreItems() {
+                topRatedMoviesPage += 1
+                viewModel.getMovieList(topRatedMoviesPage, MovieType.TopRated)
 
             }
         })

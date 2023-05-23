@@ -4,13 +4,11 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.task.almosaferassignment.core.errorhandler.exception.RemoteException
 import com.task.almosaferassignment.feature.movie.domain.entity.Movie
 import com.task.almosaferassignment.feature.movie.domain.usecase.GetMovieListUseCase
-import com.task.almosaferassignment.feature.movie.presentation.movielist.MovieListViewModel
+import com.task.almosaferassignment.feature.movie.presentation.movielist.MovieViewModel
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Rule
@@ -18,15 +16,15 @@ import org.junit.Test
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MovieListViewModelTest {
+class MovieViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private val getMovieListUseCase: GetMovieListUseCase = mockk(relaxed = true)
 
-    private val viewModel: MovieListViewModel =
-        MovieListViewModel(getMovieListUseCase = getMovieListUseCase)
+    private val viewModel: MovieViewModel =
+        MovieViewModel(getMovieListUseCase = getMovieListUseCase)
 
     @Test
     fun `test that loading flow value is true when getPopularMoviesList is called`() = runTest {

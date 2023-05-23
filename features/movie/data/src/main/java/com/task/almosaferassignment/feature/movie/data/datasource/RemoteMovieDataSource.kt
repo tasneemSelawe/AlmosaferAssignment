@@ -15,6 +15,4 @@ internal interface RemoteMovieDataSource {
         @Query("page") page: Int
     ): List<MovieResponse>
 
-    @GET("movie/{movie_id}")
-    suspend fun getMovieDetails(@Path("movie_id") movieId: Int): MovieResponse
 }

@@ -8,7 +8,6 @@ import com.task.almosaferassignment.feature.movie.domain.usecase.GetMovieListUse
 import com.task.almosaferassignment.feature.movie.presentation.MovieType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -17,7 +16,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MovieListViewModel @Inject constructor(
+class MovieViewModel @Inject constructor(
     private val getMovieListUseCase: GetMovieListUseCase
 ) : ViewModel() {
 
@@ -65,13 +64,6 @@ class MovieListViewModel @Inject constructor(
                         _revenueMovieList.emit(oldRevenueList)
                     }
                 }
-//                val dif1 = async { getMovieListUseCase("popularity.desc",page) }
-//                val dif2 = async { getMovieListUseCase("vote_average.desc",page) }
-//                val dif3 = async { getMovieListUseCase("revenue.desc",page) }
-//
-//                _popularMovieList.emit(dif1.await())
-//                _topRatedMovieList.emit(dif2.await())
-//                _revenueMovieList.emit(dif3.await())
 
             } catch (exception: RemoteException) {
                 _errorFlow.emit(exception)

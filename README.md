@@ -3,8 +3,6 @@
 - [Screenshots](#Screenshots)
 - [Implementation Details](#implementation-details)
 - [Unit Testing](#unit-testing)
-- [Running the Example](#run-sample)
-- [Requirements](#requirements)
 - [Dependencies](#Dependencies)
 
 ## Screenshots

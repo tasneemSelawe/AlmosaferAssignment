@@ -16,7 +16,6 @@ import com.task.almosaferassignment.navigation.di.getEntryPoint
 import com.task.almosaferassignment.navigation.features.MovieDetailsEntry
 import com.task.almosaferassignment.navigation.features.MovieDetailsEntry.*
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -25,7 +24,7 @@ class MovieListFragment : Fragment() {
     private var _binding: FragmentMovieListBinding? = null
     private val binding: FragmentMovieListBinding get() = _binding!!
 
-    private val viewModel by viewModels<MovieListViewModel>()
+    private val viewModel by viewModels<MovieViewModel>()
 
     private val popularAdapter = MovieListAdapter()
     private val topRatedAdapter = MovieListAdapter()
@@ -127,10 +126,6 @@ class MovieListFragment : Fragment() {
             }
             else -> {}
         }
-//        binding.shimmerPopular.root.isVisible = show
-//        binding.shimmerTopRated.root.isVisible = show
-//        binding.shimmerRevenue.root.isVisible = show
-
     }
 
     private fun handelError(exception: RemoteException) {

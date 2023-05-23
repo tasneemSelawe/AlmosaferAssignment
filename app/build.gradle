@@ -17,7 +17,6 @@ dependencies {
     debugImplementation(libs.so.loader)
 
     implementation project(':core:network')
-    implementation project(':core:theme')
     implementation project(':navigation')
 
     implementation project(':features:movie:data')

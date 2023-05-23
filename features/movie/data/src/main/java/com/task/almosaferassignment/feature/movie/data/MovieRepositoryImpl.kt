@@ -26,13 +26,4 @@ internal class MovieRepositoryImpl @Inject constructor(
             .getOrThrow()
 
     }
-
-    override suspend fun getMovieDetails(movieId: Int): Movie {
-        return runWithCatching { remoteDataSource.getMovieDetails(movieId) }
-            .map(movieResponseToMovieMapper::map)
-            .mapError(errorHandler::getError)
-            .getOrThrow()
-
-
-    }
 }

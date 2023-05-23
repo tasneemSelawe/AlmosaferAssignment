@@ -112,19 +112,12 @@ class MovieListFragment : Fragment() {
         }
     }
 
-    //  private fun handelLoading(show: Boolean) {
-    private fun handelLoading(pair: Pair<Boolean, MovieType?>) {
-        when (pair.second) {
-            MovieType.Popularity -> {
-                binding.shimmerPopular.root.isVisible = pair.first
-            }
-            MovieType.TopRated -> {
-                binding.shimmerTopRated.root.isVisible = pair.first
-            }
-            MovieType.Revenue -> {
-                binding.shimmerRevenue.root.isVisible = pair.first
-            }
-            else -> {}
+
+    private fun handelLoading(pair: Pair<Boolean, Int>) {
+        if (pair.second == 1) {
+            binding.shimmerPopular.root.isVisible = pair.first
+            binding.shimmerTopRated.root.isVisible = pair.first
+            binding.shimmerRevenue.root.isVisible = pair.first
         }
     }
 

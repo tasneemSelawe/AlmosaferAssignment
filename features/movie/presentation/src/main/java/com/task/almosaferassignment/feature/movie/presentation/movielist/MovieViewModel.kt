@@ -20,7 +20,7 @@ class MovieViewModel @Inject constructor(
     private val getMovieListUseCase: GetMovieListUseCase
 ) : ViewModel() {
 
-    private val _loadingFlow = MutableStateFlow<Pair<Boolean,MovieType?>>(Pair(true,null))
+    private val _loadingFlow = MutableStateFlow<Pair<Boolean,Int>>(Pair(true,1))
     val loadingFlow = _loadingFlow.asStateFlow()
 
     private val _errorFlow = MutableSharedFlow<RemoteException>()
@@ -43,7 +43,7 @@ class MovieViewModel @Inject constructor(
 
      fun getMovieList(page:Int,sortBy:MovieType) {
         viewModelScope.launch(Dispatchers.IO) {
-            _loadingFlow.emit(Pair(true,sortBy))
+            _loadingFlow.emit(Pair(true,page))
             try {
                 val result = getMovieListUseCase(sortBy.value,page)
                 when(sortBy)
@@ -68,7 +68,7 @@ class MovieViewModel @Inject constructor(
             } catch (exception: RemoteException) {
                 _errorFlow.emit(exception)
             }
-            _loadingFlow.emit(Pair(false, sortBy))
+            _loadingFlow.emit(Pair(false, page))
         }
     }
 
